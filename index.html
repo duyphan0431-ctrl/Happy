@@ -1,38 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Bé ❤️</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="scene">
-    <div class="cake">
-      <div class="cream">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+  <!-- Màn hình mở đầu -->
+  <div id="book">
 
-      <div class="layer layer1"></div>
-      <div class="layer layer2"></div>
-      <div class="layer layer3"></div>
+    <div class="page page-front">
+      <div class="cover">
+        <div class="cover-heart">❤️</div>
 
-      <div class="candle">
-        <div class="flame"></div>
-        <div class="wick"></div>
+        <h1>Happy Birthday</h1>
+        <p>Gửi đến Bé iu ❤️</p>
+
+        <button id="openBtn">
+          Mở trang 💌
+        </button>
       </div>
     </div>
 
-    <div class="line"></div>
+    <!-- Trang phía sau -->
+    <div class="page page-back">
 
-    <h1>Happy birthday!</h1>
-    <p>Bé iu ❤️</p>
+      <div class="content">
+
+        <!-- Cây trái tim -->
+        <div class="tree-area">
+
+          <div id="heartTree"></div>
+
+          <div class="tree-trunk"></div>
+
+          <div class="ground"></div>
+
+        </div>
+
+        <!-- Lời chúc -->
+        <div class="message">
+
+          <h2>Happy Birthday! 🎂</h2>
+
+          <p class="wish">
+            Chúc Bé iu có một sinh nhật thật vui vẻ ❤️
+          </p>
+
+          <p class="wish">
+            Mong mọi điều tốt đẹp nhất sẽ đến với Bé.
+          </p>
+
+          <p class="wish">
+            Luôn vui vẻ, hạnh phúc và luôn mỉm cười nhé 💕
+          </p>
+
+          <p class="wish">
+            Anh yêu Bé rất nhiều ❤️
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
+
+  <!-- Tim bay -->
+  <div id="floatingHearts"></div>
+
 
   <script src="script.js"></script>
 
