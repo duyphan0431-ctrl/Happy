@@ -70,8 +70,18 @@
 
 
         <!-- NÚT MỞ TRANG -->
-        <button id="openBtn">
-          Mở trang 💌
+        <button
+  id="openBtn"
+  type="button"
+  onclick="
+    document.getElementById('book').classList.add('open');
+    setTimeout(function() {
+      if (typeof createHeartTree === 'function') createHeartTree();
+      if (typeof startFloatingHearts === 'function') startFloatingHearts();
+    }, 500);
+  "
+>
+  Mở trang 💌
         </button>
 
       </div>
