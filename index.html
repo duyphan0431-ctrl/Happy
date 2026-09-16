@@ -70,17 +70,7 @@
 
 
         <!-- NÚT MỞ TRANG -->
-        <button
-  id="openBtn"
-  type="button"
-  onclick="
-    document.getElementById('book').classList.add('open');
-    setTimeout(function() {
-      if (typeof createHeartTree === 'function') createHeartTree();
-      if (typeof startFloatingHearts === 'function') startFloatingHearts();
-    }, 500);
-  "
->
+        <button id="openBtn" type="button">
   Mở trang 💌
         </button>
 
@@ -132,11 +122,7 @@
           </p>
 
         </div>
-<button
-  id="backBtn"
-  type="button"
-  onclick="document.getElementById('book').classList.remove('open')"
->
+<button id="backBtn" type="button">
   ← Quay lại 💌
 </button>
       </div>
