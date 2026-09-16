@@ -10,7 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let treeCreated = false;
   let floatingStarted = false;
 
+  /* =========================
+     TẠO CÂY TIM
+  ========================= */
+
   function createHeartTree() {
+
     if (treeCreated) return;
 
     treeCreated = true;
@@ -30,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < total; i++) {
 
       const heart = document.createElement("div");
+
       heart.className = "heart";
 
       const t = Math.random() * Math.PI * 2;
@@ -74,9 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
       heart.style.height =
         12 * size + "px";
 
+      /* Hiệu ứng xuất hiện từng trái tim */
       heart.style.animationDelay =
-        i * 0.009 + "s";
+        (i * 0.009) + "s";
 
+      /* Một số tim phát sáng */
       if (Math.random() < 0.1) {
         heart.classList.add("glow");
       }
@@ -84,6 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
       tree.appendChild(heart);
     }
   }
+
+
+  /* =========================
+     TIM BAY
+  ========================= */
 
   function startFloatingHearts() {
 
@@ -132,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 650);
   }
 
+
   /* =========================
      MỞ TRANG
   ========================= */
@@ -144,14 +158,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         book.classList.add("open");
 
+        /* Cho trang chuyển trước */
         setTimeout(function () {
+
           createHeartTree();
           startFloatingHearts();
+
         }, 500);
 
       }
     );
   }
+
 
   /* =========================
      QUAY LẠI
@@ -167,148 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       }
     );
-  }
-
-});
-      heart.className = "heart";
-
-      const t =
-        Math.random() * Math.PI * 2;
-
-      const scale =
-        Math.sqrt(Math.random());
-
-      let x =
-        16 * Math.pow(Math.sin(t), 3);
-
-      let y =
-        13 * Math.cos(t)
-        - 5 * Math.cos(2 * t)
-        - 2 * Math.cos(3 * t)
-        - Math.cos(4 * t);
-
-      x *= scale;
-      y *= scale;
-
-      const centerX = 215;
-      const centerY = 155;
-
-      const px = centerX + x * 8;
-      const py = centerY - y * 8;
-
-      heart.style.left = px + "px";
-      heart.style.top = py + "px";
-
-      heart.style.setProperty(
-        "--heart-color",
-        colors[
-          Math.floor(
-            Math.random() * colors.length
-          )
-        ]
-      );
-
-      const size =
-        0.5 + Math.random() * 0.9;
-
-      heart.style.width =
-        12 * size + "px";
-
-      heart.style.height =
-        12 * size + "px";
-
-      heart.style.animationDelay =
-        i * 0.009 + "s";
-
-      if (Math.random() < 0.1) {
-        heart.classList.add("glow");
-      }
-
-      tree.appendChild(heart);
-    }
-  }
-
-
-  // =========================
-  // TIM BAY
-  // =========================
-
-  function startFloatingHearts() {
-
-    if (floatingStarted) return;
-
-    floatingStarted = true;
-
-    setInterval(function () {
-
-      const heart =
-        document.createElement("div");
-
-      heart.className = "floating";
-
-      const emojis = [
-        "❤️",
-        "💕",
-        "💗",
-        "💖",
-        "💓",
-        "💞"
-      ];
-
-      heart.innerText =
-        emojis[
-          Math.floor(
-            Math.random() * emojis.length
-          )
-        ];
-
-      heart.style.left =
-        Math.random() * 100 + "%";
-
-      heart.style.fontSize =
-        12 + Math.random() * 20 + "px";
-
-      heart.style.animationDuration =
-        4 + Math.random() * 4 + "s";
-
-      floating.appendChild(heart);
-
-      setTimeout(function () {
-        heart.remove();
-      }, 8500);
-
-    }, 650);
-  }
-
-
-  // =========================
-  // NÚT MỞ TRANG
-  // =========================
-
-  if (openBtn) {
-
-    openBtn.addEventListener("click", function () {
-
-      console.log("ĐÃ BẤM NÚT MỞ TRANG");
-
-      // Lật trang
-      book.classList.add("open");
-
-      // Tạo cây sau khi bắt đầu lật
-      setTimeout(function () {
-
-        createHeartTree();
-
-        startFloatingHearts();
-
-      }, 800);
-
-    });
-
-  } else {
-
-    console.log("KHÔNG TÌM THẤY openBtn");
-
   }
 
 });
