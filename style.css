@@ -974,7 +974,35 @@ h1 {
   .name {
     font-size: 23px;
   }
+/* ÉP CHUYỂN TRANG */
 
+#book:not(.open) .page-front {
+  transform: translateX(0) rotateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+#book:not(.open) .page-back {
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+#book.open .page-front {
+  transform: translateX(-100%) rotateY(-15deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#book.open .page-back {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  z-index: 2;
+}
   #openBtn {
     margin-top: 12px;
   }
