@@ -1,26 +1,40 @@
+/* =====================================================
+   CÀI ĐẶT CHUNG
+===================================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html,
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+
   overflow: hidden;
 
-  background:
-    radial-gradient(circle at 50% 35%, #ffd6df, #f28da9);
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-family: Arial, sans-serif;
+  background: #f18da8;
 
-  perspective: 1400px;
+  perspective: 1600px;
 }
 
 
-/* ================= CUỐN SÁCH ================= */
+/* =====================================================
+   CUỐN SÁCH
+===================================================== */
 
 #book {
+
   position: relative;
 
   width: 100vw;
@@ -30,7 +44,12 @@ body {
 }
 
 
+/* =====================================================
+   TRANG
+===================================================== */
+
 .page {
+
   position: absolute;
 
   width: 100%;
@@ -39,365 +58,535 @@ body {
   top: 0;
   left: 0;
 
-  transform-style: preserve-3d;
+  overflow: hidden;
 
   backface-visibility: hidden;
 
+  transform-style: preserve-3d;
+
   transition:
-    transform 1.5s cubic-bezier(.65, .05, .36, 1);
+    transform 1.5s
+    cubic-bezier(.65, .05, .36, 1);
 }
 
 
-/* ================= TRANG 1 ================= */
+/* =====================================================
+   TRANG 1
+===================================================== */
 
 .page-front {
+
   z-index: 2;
 
   transform-origin: left center;
 
   background:
-    radial-gradient(
-      circle at 50% 40%,
-      #ffd4df,
-      #f18ba7
+    linear-gradient(
+      180deg,
+      #f28da8 0%,
+      #ef8ca6 100%
     );
 
   box-shadow:
-    5px 0 20px rgba(100, 30, 50, .15);
+    5px 0 25px
+    rgba(80, 30, 45, .18);
 }
 
+
+/* Khi mở */
 
 #book.open .page-front {
-  transform: rotateY(-180deg);
+
+  transform:
+    rotateY(-180deg);
 }
 
 
-.cover {
+/* =====================================================
+   TRANG BÁNH
+===================================================== */
+
+.birthday-page {
+
   width: 100%;
   height: 100%;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
+
   justify-content: center;
 
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 
-/* ================= BÁNH KEM ================= */
+/* =====================================================
+   BÁNH KEM
+===================================================== */
 
 .cake {
+
   position: relative;
 
-  width: 260px;
-  height: 220px;
+  width: 570px;
+  height: 390px;
 
-  margin-bottom: 20px;
+  margin-bottom: 0;
 
-  animation: cakeFloat 3s ease-in-out infinite;
+  animation:
+    cakeFloat 3.5s
+    ease-in-out
+    infinite;
 }
 
 
-/* Đĩa */
+/* =====================================================
+   ĐĨA BÁNH
+===================================================== */
 
 .plate {
+
   position: absolute;
 
-  width: 250px;
-  height: 22px;
+  width: 560px;
+  height: 18px;
 
-  bottom: 8px;
   left: 5px;
+  bottom: 45px;
 
-  background: #fff;
+  background: #fffdf5;
+
   border-radius: 50%;
 
   box-shadow:
-    0 8px 15px rgba(100, 30, 50, .2);
+    0 3px 0
+    rgba(160, 100, 100, .12);
 }
 
 
-/* Tầng bánh dưới */
+/* =====================================================
+   TẦNG BÁNH
+===================================================== */
 
-.cake-bottom {
+.cake-layer {
+
   position: absolute;
 
-  width: 220px;
-  height: 65px;
+  left: 80px;
 
-  left: 20px;
-  bottom: 28px;
+  width: 410px;
+
+  border-radius:
+    18px 18px 15px 15px;
+}
+
+
+/* Tầng dưới */
+
+.cake-bottom {
+
+  height: 100px;
+
+  bottom: 63px;
 
   background:
     linear-gradient(
-      to bottom,
-      #ff8fab,
-      #f05b7e
+      180deg,
+      #a47b72,
+      #987069
+    );
+
+  box-shadow:
+    inset 0 12px
+    rgba(115, 75, 68, .12);
+}
+
+
+/* Tầng trên */
+
+.cake-top {
+
+  height: 105px;
+
+  bottom: 143px;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      180deg,
+      #a77c73,
+      #997068
     );
 
   border-radius:
-    15px 15px 25px 25px;
-
-  box-shadow:
-    inset 0 -8px rgba(190, 45, 85, .2);
+    18px 18px 14px 14px;
 }
 
 
-/* Tầng giữa */
+/* =====================================================
+   KEM TRÊN BÁNH
+===================================================== */
 
-.cake-middle {
+.cream {
+
   position: absolute;
 
-  width: 220px;
-  height: 55px;
+  width: 440px;
+  height: 65px;
 
-  left: 20px;
-  bottom: 78px;
+  left: -15px;
+  top: -25px;
 
-  background:
-    linear-gradient(
-      to bottom,
-      #ffb3c6,
-      #ff7395
-    );
+  background: #fffdf1;
 
-  border-radius: 14px 14px 8px 8px;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  color: #fff;
-  font-size: 22px;
-}
-
-
-/* Mặt bánh */
-
-.cake-top {
-  position: absolute;
-
-  width: 220px;
-  height: 48px;
-
-  left: 20px;
-  bottom: 125px;
-
-  background: #fff0f5;
-
-  border-radius: 50%;
+  border-radius:
+    50px;
 
   box-shadow:
-    inset 0 -6px #ffd0dc;
+    0 3px 0
+    rgba(190, 160, 140, .12);
 }
 
 
 /* Kem chảy */
 
-.cream-drop {
-  position: relative;
+.cream span {
 
-  display: inline-block;
+  position: absolute;
 
-  width: 35px;
-  height: 28px;
+  top: 35px;
 
-  margin: 17px 2px 0;
+  width: 28px;
+  height: 70px;
 
-  background: white;
+  background: #fffdf1;
 
   border-radius:
-    0 0 20px 20px;
+    0 0 18px 18px;
 }
 
 
-/* Kem trên */
+/* vị trí kem chảy */
 
-.cream-top {
+.cream span:nth-child(1) {
+  left: 65px;
+  height: 78px;
+}
+
+.cream span:nth-child(2) {
+  left: 150px;
+  height: 48px;
+}
+
+.cream span:nth-child(3) {
+  left: 245px;
+  height: 70px;
+}
+
+.cream span:nth-child(4) {
+  left: 330px;
+  height: 55px;
+}
+
+.cream span:nth-child(5) {
+  left: 390px;
+  height: 35px;
+}
+
+
+/* =====================================================
+   TRANG TRÍ BÁNH
+===================================================== */
+
+.cake-decoration {
+
   position: absolute;
 
-  width: 205px;
-  height: 20px;
+  left: 0;
+  right: 0;
 
-  left: 27px;
-  bottom: 143px;
+  bottom: 15px;
 
-  background: white;
+  display: flex;
 
-  border-radius: 50%;
+  justify-content:
+    space-evenly;
+
+  align-items: center;
 }
 
 
-/* ================= NẾN ================= */
+.cake-decoration i {
+
+  font-style: normal;
+
+  font-size: 25px;
+
+  color: #bd8d84;
+
+  opacity: .8;
+}
+
+
+/* =====================================================
+   NẾN
+===================================================== */
 
 .candle {
+
   position: absolute;
 
-  z-index: 5;
+  z-index: 10;
 
-  width: 22px;
-  height: 65px;
+  width: 24px;
+  height: 105px;
 
-  left: 119px;
-  bottom: 143px;
+  left: 273px;
+  bottom: 270px;
+
+  border-radius: 10px;
 
   background:
     repeating-linear-gradient(
       -45deg,
-      #ff5c8a 0px,
-      #ff5c8a 6px,
-      #fff 6px,
-      #fff 11px
+      #ffffff 0px,
+      #ffffff 13px,
+      #e9b7c1 13px,
+      #e9b7c1 23px
     );
 
-  border-radius: 6px;
+  box-shadow:
+    0 2px 3px
+    rgba(80, 50, 50, .12);
 }
 
 
-/* Lửa */
+/* =====================================================
+   LỬA
+===================================================== */
 
 .flame {
+
   position: absolute;
 
-  width: 24px;
-  height: 35px;
+  width: 34px;
+  height: 48px;
 
-  left: -1px;
-  top: -30px;
-
-  background:
-    radial-gradient(
-      ellipse at center bottom,
-      #fff176 10%,
-      #ff9800 45%,
-      #ff5722 70%,
-      transparent 72%
-    );
+  left: -5px;
+  top: -43px;
 
   border-radius:
     50% 50% 50% 50%;
 
+  background:
+    radial-gradient(
+      ellipse at center bottom,
+      #fffbd1 0%,
+      #fff06a 25%,
+      #ffae27 55%,
+      #ff682e 75%,
+      transparent 76%
+    );
+
+  transform-origin:
+    center bottom;
+
   animation:
-    flame 0.8s ease-in-out infinite alternate;
+    flameMove .7s
+    ease-in-out
+    infinite alternate;
 }
 
 
-@keyframes flame {
+@keyframes flameMove {
 
-  from {
+  0% {
+
     transform:
       scale(.9)
-      rotate(-3deg);
+      rotate(-4deg);
 
-    filter: brightness(1);
   }
 
-  to {
-    transform:
-      scale(1.15)
-      rotate(3deg);
+  100% {
 
-    filter: brightness(1.3);
+    transform:
+      scale(1.1)
+      rotate(4deg);
+
   }
 }
 
+
+/* =====================================================
+   BÁNH NHẤP NHÔ
+===================================================== */
 
 @keyframes cakeFloat {
 
-  0%, 100% {
-    transform: translateY(0);
+  0%,
+  100% {
+
+    transform:
+      translateY(0);
+
   }
 
   50% {
-    transform: translateY(-7px);
+
+    transform:
+      translateY(-6px);
+
   }
 }
 
 
-/* ================= CHỮ TRANG 1 ================= */
+/* =====================================================
+   CHỮ
+===================================================== */
 
-.cover h1 {
-  font-size: 43px;
+.birthday-page h1 {
+
+  margin-top: -5px;
+
+  font-size: 48px;
+
+  font-weight: 400;
 
   font-style: italic;
 
-  color: #704b58;
+  color: #674f56;
 
-  margin-top: 5px;
+  letter-spacing: 1px;
 
-  text-shadow:
-    1px 2px 2px rgba(255,255,255,.5);
+  text-align: center;
 
   animation:
-    titleAppear 1.5s ease;
+    titleAppear 1.2s ease;
 }
 
 
-.cover p {
-  font-size: 27px;
-
-  color: #704b58;
+.name {
 
   margin-top: 18px;
 
+  font-size: 31px;
+
+  font-style: italic;
+
+  color: #674f56;
+
   animation:
-    titleAppear 2s ease;
+    titleAppear 1.6s ease;
+}
+
+
+.name span {
+
+  display: inline-block;
+
+  font-style: normal;
+
+  animation:
+    heartBeat 1.3s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes heartBeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
 }
 
 
 @keyframes titleAppear {
 
   from {
+
     opacity: 0;
-    transform: translateY(20px);
+
+    transform:
+      translateY(25px);
+
   }
 
   to {
+
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
+
   }
 }
 
 
-/* ================= NÚT ================= */
+/* =====================================================
+   NÚT MỞ TRANG
+===================================================== */
 
 #openBtn {
-  margin-top: 32px;
+
+  margin-top: 30px;
+
+  padding:
+    17px 45px;
 
   border: none;
 
-  padding: 18px 45px;
-
   border-radius: 50px;
 
-  background: white;
+  background: #fffafa;
 
-  color: #a85c73;
+  color: #a06977;
 
   font-size: 21px;
 
   cursor: pointer;
 
   box-shadow:
-    0 8px 20px rgba(120, 30, 60, .2);
+    0 8px 20px
+    rgba(100, 40, 60, .18);
 
-  transition: .3s;
+  transition:
+    transform .25s,
+    box-shadow .25s;
 }
 
 
 #openBtn:hover {
-  transform: scale(1.07);
+
+  transform:
+    scale(1.07);
+
+  box-shadow:
+    0 10px 25px
+    rgba(100, 40, 60, .25);
 }
 
 
 #openBtn:active {
-  transform: scale(.95);
+
+  transform:
+    scale(.94);
 }
 
 
-/* ================= TRANG 2 ================= */
+/* =====================================================
+   TRANG 2
+===================================================== */
 
 .page-back {
 
@@ -406,67 +595,73 @@ body {
   background:
     radial-gradient(
       circle at 50% 25%,
-      #ffe0e8,
-      #f39ab2
+      #ffdce5,
+      #f095ad
     );
-
-  overflow: hidden;
 }
 
 
-.content {
+.tree-page {
 
   width: 100%;
   height: 100%;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
 
   justify-content: center;
-
-  padding-top: 20px;
 }
 
 
-/* ================= CÂY ================= */
+/* =====================================================
+   KHU VỰC CÂY
+===================================================== */
 
 .tree-area {
 
   position: relative;
 
-  width: 330px;
-  height: 390px;
+  width: 430px;
+  height: 450px;
 
-  margin-top: -20px;
+  flex-shrink: 0;
 }
 
+
+/* =====================================================
+   TÁN CÂY TIM
+===================================================== */
 
 #heartTree {
 
   position: absolute;
 
-  width: 330px;
-  height: 310px;
+  width: 430px;
+  height: 370px;
 
   left: 0;
   top: 0;
 
-  z-index: 3;
+  z-index: 4;
 }
 
 
-/* ================= TIM NHỎ ================= */
+/* =====================================================
+   TIM NHỎ
+===================================================== */
 
 .heart {
 
   position: absolute;
 
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
 
-  background: var(--heart-color);
+  background:
+    var(--heart-color);
 
   transform:
     rotate(45deg)
@@ -477,7 +672,8 @@ body {
   border-radius: 2px;
 
   animation:
-    heartAppear .7s ease forwards;
+    heartAppear .7s
+    ease forwards;
 }
 
 
@@ -488,48 +684,64 @@ body {
 
   position: absolute;
 
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
 
-  background: var(--heart-color);
+  background:
+    var(--heart-color);
 
   border-radius: 50%;
 }
 
 
 .heart::before {
+
   top: -6px;
   left: 0;
 }
 
 
 .heart::after {
+
   top: 0;
   left: -6px;
 }
 
 
+/* =====================================================
+   TIM HIỆN RA
+===================================================== */
+
 @keyframes heartAppear {
 
   0% {
+
     opacity: 0;
+
     transform:
       rotate(45deg)
       scale(0);
+
   }
 
   70% {
+
     opacity: 1;
+
     transform:
       rotate(45deg)
       scale(1.25);
+
   }
 
   100% {
+
     opacity: 1;
+
     transform:
       rotate(45deg)
       scale(1);
+
   }
 }
 
@@ -540,52 +752,63 @@ body {
 
   animation:
     heartAppear .7s ease forwards,
-    heartGlow 2s ease-in-out infinite 1s;
+    heartGlow 2s ease-in-out
+    infinite 1s;
 }
 
 
 @keyframes heartGlow {
 
-  0%, 100% {
-    filter: brightness(1);
+  0%,
+  100% {
+
+    filter:
+      brightness(1);
+
   }
 
   50% {
+
     filter:
-      brightness(1.6)
-      drop-shadow(0 0 5px #fff);
+      brightness(1.7)
+      drop-shadow(
+        0 0 5px white
+      );
+
   }
 }
 
 
-/* ================= THÂN CÂY ================= */
+/* =====================================================
+   THÂN CÂY
+===================================================== */
 
 .tree-trunk {
 
   position: absolute;
 
-  width: 35px;
-  height: 135px;
+  z-index: 2;
 
-  left: 147px;
-  top: 245px;
+  width: 38px;
+  height: 155px;
+
+  left: 196px;
+  top: 275px;
 
   background:
     linear-gradient(
       90deg,
-      #75432d,
-      #a96745,
-      #673b29
+      #633b2b,
+      #9a6041,
+      #70412f
     );
 
   border-radius:
-    12px 12px 5px 5px;
-
-  z-index: 2;
+    15px 15px 6px 6px;
 }
 
 
-/* Cành */
+/* Cành trái */
 
 .tree-trunk::before {
 
@@ -593,20 +816,23 @@ body {
 
   position: absolute;
 
-  width: 18px;
-  height: 120px;
+  width: 20px;
+  height: 145px;
 
-  background: #79452f;
+  left: -52px;
+  top: -82px;
 
-  left: -35px;
-  top: -70px;
-
-  transform:
-    rotate(38deg);
+  background:
+    #74432f;
 
   border-radius: 20px;
+
+  transform:
+    rotate(39deg);
 }
 
+
+/* Cành phải */
 
 .tree-trunk::after {
 
@@ -614,82 +840,89 @@ body {
 
   position: absolute;
 
-  width: 18px;
-  height: 115px;
+  width: 20px;
+  height: 145px;
 
-  background: #79452f;
+  right: -48px;
+  top: -82px;
 
-  right: -32px;
-  top: -70px;
-
-  transform:
-    rotate(-38deg);
+  background:
+    #74432f;
 
   border-radius: 20px;
+
+  transform:
+    rotate(-39deg);
 }
 
 
-/* Mặt đất */
+/* =====================================================
+   MẶT ĐẤT
+===================================================== */
 
 .ground {
 
   position: absolute;
 
-  width: 220px;
-  height: 25px;
+  width: 300px;
+  height: 27px;
 
-  left: 55px;
-  bottom: 3px;
+  left: 65px;
+  bottom: 5px;
 
-  background: rgba(255,255,255,.5);
+  background:
+    rgba(255,255,255,.5);
 
   border-radius: 50%;
-
-  filter: blur(1px);
 }
 
 
-/* ================= LỜI CHÚC ================= */
+/* =====================================================
+   LỜI CHÚC
+===================================================== */
 
 .message {
 
+  width: 92%;
+
+  max-width: 600px;
+
   text-align: center;
 
-  width: 90%;
+  margin-top: -35px;
 
-  max-width: 500px;
+  padding-bottom: 20px;
 }
 
 
 .message h2 {
 
-  font-size: 30px;
+  color: #704454;
 
-  color: #713e51;
+  font-size: 31px;
 
-  margin-top: -20px;
-
-  margin-bottom: 15px;
+  margin-bottom: 13px;
 
   animation:
-    messageAppear 1s ease forwards;
+    messageAppear 1s ease;
 }
 
 
 .wish {
 
+  color: #704b58;
+
   font-size: 18px;
 
   line-height: 1.5;
 
-  color: #704b58;
-
-  margin: 8px 0;
+  margin: 7px 0;
 
   opacity: 0;
 
   animation:
-    messageAppear 1s ease forwards;
+    messageAppear 1s
+    ease forwards;
 }
 
 
@@ -713,20 +946,28 @@ body {
 @keyframes messageAppear {
 
   from {
+
     opacity: 0;
+
     transform:
       translateY(20px);
+
   }
 
   to {
+
     opacity: 1;
+
     transform:
       translateY(0);
+
   }
 }
 
 
-/* ================= TIM BAY ================= */
+/* =====================================================
+   TIM BAY
+===================================================== */
 
 #floatingHearts {
 
@@ -734,11 +975,11 @@ body {
 
   inset: 0;
 
-  pointer-events: none;
-
   overflow: hidden;
 
-  z-index: 20;
+  pointer-events: none;
+
+  z-index: 50;
 }
 
 
@@ -755,86 +996,174 @@ body {
 
 @keyframes floatUp {
 
-  from {
+  0% {
+
+    opacity: 0;
+
     transform:
       translateY(0)
       rotate(0deg);
 
-    opacity: 0;
   }
 
   10% {
+
     opacity: 1;
+
   }
 
-  to {
+  100% {
+
+    opacity: 0;
+
     transform:
       translateY(-110vh)
       rotate(360deg);
 
-    opacity: 0;
   }
 }
 
 
-/* ================= ĐIỆN THOẠI ================= */
+/* =====================================================
+   ĐIỆN THOẠI
+===================================================== */
 
 @media (max-width: 600px) {
 
   .cake {
-    transform: scale(.9);
-    margin-bottom: 5px;
+
+    transform:
+      scale(.72);
+
+    margin-top: -25px;
+
+    margin-bottom: -65px;
   }
 
-  .cover h1 {
-    font-size: 37px;
+
+  .birthday-page h1 {
+
+    font-size: 39px;
+
+    margin-top: 0;
   }
 
-  .cover p {
-    font-size: 24px;
+
+  .name {
+
+    font-size: 27px;
+
+    margin-top: 14px;
   }
+
 
   #openBtn {
+
     font-size: 19px;
-    padding: 16px 38px;
+
+    padding:
+      16px 40px;
+
+    margin-top: 25px;
   }
+
+
+  /* Cây */
 
   .tree-area {
-    transform: scale(.82);
 
-    margin-top: -45px;
+    transform:
+      scale(.72);
 
-    margin-bottom: -50px;
+    margin-top: -65px;
+
+    margin-bottom: -105px;
   }
 
+
+  .message {
+
+    width: 94%;
+
+    margin-top: 0;
+  }
+
+
   .message h2 {
+
     font-size: 27px;
   }
 
+
   .wish {
-    font-size: 17px;
+
+    font-size: 16px;
+
+    margin: 6px 0;
   }
 }
 
 
-@media (max-height: 700px) {
+/* =====================================================
+   ĐIỆN THOẠI MÀN HÌNH THẤP
+===================================================== */
+
+@media (max-width: 600px)
+       and (max-height: 700px) {
 
   .cake {
-    transform: scale(.72);
 
-    margin-top: -25px;
-    margin-bottom: -35px;
+    transform:
+      scale(.58);
+
+    margin-top: -55px;
+
+    margin-bottom: -110px;
   }
 
-  .cover h1 {
-    font-size: 32px;
+
+  .birthday-page h1 {
+
+    font-size: 33px;
   }
 
-  .cover p {
-    font-size: 21px;
+
+  .name {
+
+    font-size: 23px;
   }
+
 
   #openBtn {
-    margin-top: 20px;
+
+    margin-top: 18px;
+
+    padding:
+      14px 35px;
   }
-}
+
+
+  .tree-area {
+
+    transform:
+      scale(.62);
+
+    margin-top: -100px;
+
+    margin-bottom: -145px;
+  }
+
+
+  .message h2 {
+
+    font-size: 24px;
+  }
+
+
+  .wish {
+
+    font-size: 15px;
+
+    line-height: 1.35;
+  }
+      }
