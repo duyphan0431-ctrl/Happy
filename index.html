@@ -3,68 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Happy Birthday Bé ❤️</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- ================= CUỐN SÁCH ================= -->
+
   <div id="book">
 
-    <!-- ================= TRANG 1 ================= -->
-    <div class="page page-front">
-      <div class="cover">
+    <!-- ================= TRANG 1 - BÁNH KEM ================= -->
+
+    <section class="page page-front">
+
+      <div class="birthday-page">
 
         <!-- BÁNH KEM -->
         <div class="cake">
 
+          <!-- NẾN -->
           <div class="candle">
             <div class="flame"></div>
           </div>
 
-          <div class="cream cream-top"></div>
+          <!-- TẦNG TRÊN -->
+          <div class="cake-layer cake-top">
 
-          <div class="cake-top">
-            <div class="cream-drop"></div>
-            <div class="cream-drop"></div>
-            <div class="cream-drop"></div>
-            <div class="cream-drop"></div>
-            <div class="cream-drop"></div>
+            <div class="cream">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
           </div>
 
-          <div class="cake-middle">
-            <span>♥</span>
-            <span>♥</span>
-            <span>♥</span>
+
+          <!-- TẦNG DƯỚI -->
+          <div class="cake-layer cake-bottom">
+
+            <div class="cake-decoration">
+              <i>♥</i>
+              <i>♥</i>
+              <i>♥</i>
+            </div>
+
           </div>
 
-          <div class="cake-bottom"></div>
 
+          <!-- ĐĨA -->
           <div class="plate"></div>
+
         </div>
 
-        <h1>Happy Birthday</h1>
-        <p>Gửi đến Bé iu ❤️</p>
 
-        <button id="openBtn">Mở trang 💌</button>
+        <!-- CHỮ -->
+        <h1>happy birthday!</h1>
+
+        <div class="name">
+          Bé iu <span>❤️</span>
+        </div>
+
+
+        <!-- NÚT MỞ TRANG -->
+        <button id="openBtn">
+          Mở trang 💌
+        </button>
 
       </div>
-    </div>
+
+    </section>
 
 
-    <!-- ================= TRANG 2 ================= -->
-    <div class="page page-back">
-      <div class="content">
+    <!-- ================= TRANG 2 - CÂY TIM ================= -->
+
+    <section class="page page-back">
+
+      <div class="tree-page">
 
         <div class="tree-area">
+
+          <!-- CÂY TIM -->
           <div id="heartTree"></div>
 
+          <!-- THÂN CÂY -->
           <div class="tree-trunk"></div>
 
+          <!-- MẶT ĐẤT -->
           <div class="ground"></div>
+
         </div>
 
+
+        <!-- LỜI CHÚC -->
+
         <div class="message">
+
           <h2>Happy Birthday! 🎂</h2>
 
           <p class="wish">
@@ -82,14 +120,20 @@
           <p class="wish">
             Anh yêu Bé rất nhiều ❤️
           </p>
+
         </div>
 
       </div>
-    </div>
+
+    </section>
 
   </div>
 
+
+  <!-- TIM BAY -->
+
   <div id="floatingHearts"></div>
+
 
   <script src="script.js"></script>
 
